@@ -13,6 +13,7 @@ const journalSchema = new mongoose.Schema({
     },
     content: {
         type: String,
+        default: "",
         required: true,
     },
 }, { timestamps: true });

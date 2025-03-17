@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authenticationRoutes from "./routes/authentication.route.js";
+import bookRoutes from "./routes/book.route.js";
+import journalRoutes from "./routes/journal.route.js";
 
 dotenv.config();
 
@@ -23,6 +25,8 @@ mongoose.connect(process.env.MONGO_URI)
     });
 
 app.use("/api/auth", authenticationRoutes);
+app.use("/api/books", bookRoutes);
+app.use("/api/journals", journalRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
