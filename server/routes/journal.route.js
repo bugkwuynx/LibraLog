@@ -3,7 +3,7 @@ import express from "express";
 
 const router = express.Router();
 
-router.post("/:userName/:id", addJournal);
-router.get("/:userName/:id", getJournal);
+router.post("/:userName/:bookId", addJournal);
+router.get("/:userName/:bookId", getJournal);
 
 export default router;

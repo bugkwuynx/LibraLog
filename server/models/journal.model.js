@@ -6,9 +6,8 @@ const journalSchema = new mongoose.Schema({
         ref: "Book",
         required: true,
     },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+    userName: {
+        type: String,
         required: true,
     },
     content: {

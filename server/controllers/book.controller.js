@@ -8,16 +8,13 @@ dotenv.config();
 
 const searchBook = async (req, res) => {
     try {
-        const input = req.body.title;
+        const input = req.query.q;
         if (!input) {
             return res.status(400).json({ message: "Input is required" });
         }
-        const formatInput = encodeURIComponent(input.trim().toLowerCase().replace(/\s+/g, '+'));
-
-        const apiURL = `${process.env.OPEN_LIBRARY_URL}/search.json?q=${formatInput}`;
+        const apiURL = `${process.env.OPEN_LIBRARY_URL}/search.json?q=${input}`;
         const response = await axios.get(apiURL);
         const result = response.data;
-        console.log(result);
         res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -27,10 +24,11 @@ const searchBook = async (req, res) => {
 const addBook = async (req, res) => {
     try {
         const newBook = {
-            userName: req.params.userName,
+            username: req.params.username,
             title: req.body.title,
             author_name: req.body.author_name[0],
             cover_i: req.body.cover_i,
+            cover_edition_key: req.body.cover_edition_key,
             has_fulltext: req.body.has_fulltext,
             edition_count: req.body.edition_count,
             first_publish_year: req.body.first_publish_year,
@@ -38,10 +36,12 @@ const addBook = async (req, res) => {
             author_key: req.body.author_key[0],
             public_scan_b: req.body.public_scan_b,
         };
+        console.log(newBook);
         const book = new Book(newBook);
         await book.save();
         res.status(201).json(book);
     } catch (error) {
+        console.error(req.body);
         res.status(500).json({ message: error.message });
     }
 }

@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 
 const bookSchema = new mongoose.Schema({
-    userName: {
+    username: {
         type: String,
         required: true,
     },
     cover_i: {
+        type: String,
+        required: true,
+    },
+    cover_edition_key: {
         type: String,
         required: true,
     },

@@ -21,7 +21,8 @@ const LoginComponent = () => {
             console.log(data);
             if (data.data.token) {
                 console.log(`Successfully logged in`);
-                sessionStorage.setItem("token", data.token);
+                sessionStorage.setItem("token", data.data.token);
+                sessionStorage.setItem("user", JSON.stringify(data.data.user));
                 navigate("/dashboard");
             }
             else {

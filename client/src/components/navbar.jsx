@@ -16,6 +16,12 @@ const NavigationBar = () => {
                 sessionStorage.removeItem("token");
                 navigate("/login");
             }}>Log out</Button>
+            <Button variant="contained" color="primary" onClick={() => navigate("/dashboard")}>
+                Dashboard
+            </Button>
+            <Button variant="contained" color="primary" onClick={() => navigate("/search")}>
+                Search
+            </Button>
         </div>
     );
 }
