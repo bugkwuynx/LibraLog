@@ -29,7 +29,7 @@ const ChangeStatusButton = ({book, status, onChangeStatus}) => {
         }
     }
     return (
-        <FormControl style={{minWidth: 120}}>
+        <FormControl style={{minWidth: 120, marginRight: "10px"}}>
             <InputLabel id="status-label">Status</InputLabel>
             <Select label="Status" labelId="status-label" value={newStatus} onChange={handleChange}>
                 <MenuItem value="to read">To Read</MenuItem>

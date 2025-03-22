@@ -23,9 +23,9 @@ const RegisterComponent = () => {
                 body: JSON.stringify({ username: name, email, password })
             });
             const data = await response.json();
-            console.log(data);
-            if (data.data.token) {
+            if (data) {
                 console.log(`Successfully registered`);
+                navigate("/login");
             }
             else {
                 console.log(`Failed to register`);

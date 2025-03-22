@@ -50,6 +50,10 @@ const bookSchema = new mongoose.Schema({
         enum: ["to read", "reading", "finished"],
         default: "to read",
     },
+    journal: {
+        type: String,
+        default: "",
+    },
 }, { timestamps: true });
 
 const Book = mongoose.model("Book", bookSchema);

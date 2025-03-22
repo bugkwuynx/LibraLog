@@ -49,7 +49,7 @@ const BookDisplayLibrary = () => {
         <>
             <div>
                 {books.map((book) => (
-                    <div key={book._id}>
+                    <div key={book._id} style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
                         <BookComponent book={book} isInLibrary={true} onRemoveBook={handleRemoveBook} onAddBook={handleAddBook} />
                     </div>
                 ))}

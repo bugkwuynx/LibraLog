@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BookComponent from "../components/bookComponent";
-
+import { TextField, Button } from "@mui/material";
 const BookSearch = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [books, setBooks] = useState([]);
@@ -24,11 +24,11 @@ const BookSearch = () => {
     }
 
     return (
-        <div>
-            <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-            <button onClick={handleSearch}>Search</button>
+        <div style={{margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+            <TextField style={{ marginTop: "20px", marginBottom: "20px", width: "500px" }} type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+            <Button style={{ marginTop: "30px", marginBottom: "20px", width: "100px", marginLeft: "10px" }} onClick={handleSearch} variant="contained" color="primary">Search</Button>
             {books.map((book, index) => (
-                <BookComponent key={book._id || index} book={book} isInLibrary={false} onRemoveBook={() => {}} onAddBook={() => {}} />
+                <BookComponent style={{ marginBottom: "20px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }} key={book._id || index} book={book} isInLibrary={false} onRemoveBook={() => {}} onAddBook={() => {}} />
             ))}
         </div>
     )

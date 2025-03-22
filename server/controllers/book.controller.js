@@ -48,7 +48,7 @@ const addBook = async (req, res) => {
 
 const getBooks = async (req, res) => {
     try {
-        const books = await Book.find({ userName: req.params.userName });
+        const books = await Book.find({ username: req.params.username });
         res.status(200).json(books);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -57,9 +57,9 @@ const getBooks = async (req, res) => {
 
 const deleteBook = async (req, res) => {
     try {
-        const { userName, id } = req.params;
-        console.log(userName, id);
-        await Book.findOneAndDelete({ userName, _id: id });
+        const { username, id } = req.params;
+        console.log(username, id);
+        await Book.findOneAndDelete({ username, _id: id });
         res.status(200).json({ message: "Book deleted" });
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -68,9 +68,9 @@ const deleteBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
     try {
-        const { userName, id } = req.params;
+        const { username, id } = req.params;
         const status = req.body.status;
-        await Book.findOneAndUpdate({ userName, _id: id }, { status });
+        await Book.findOneAndUpdate({ username, _id: id }, { status });
         res.status(200).json({ message: "Book updated" });
     } catch (error) {
         res.status(500).json({ message: error.message });

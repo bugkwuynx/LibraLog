@@ -1,12 +1,11 @@
-import Journal from "../models/journal.model.js";
+import Book from "../models/book.model.js";
 
-const addJournal = async (req, res) => {
+const updateJournal = async (req, res) => {
     try {
         const { userName, bookId } = req.params;
         const { content } = req.body;
-        const journal = new Journal({ bookId, userName, content });
-        await journal.save();
-        res.status(201).json(journal);
+        const book = await Book.findOneAndUpdate({ username: userName, _id: bookId }, { journal: content }, { new: true });
+        res.status(201).json(book);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -14,8 +13,8 @@ const addJournal = async (req, res) => {
 
 const getJournal = async (req, res) => {
     const { userName, bookId } = req.params;
-    const journal = await Journal.find({ userName, bookId });
-    res.status(200).json(journal);
+    const book = await Book.findOne({ username: userName, _id: bookId });
+    res.status(200).json(book.journal);
 }   
 
-export { addJournal, getJournal };
+export { updateJournal, getJournal };
