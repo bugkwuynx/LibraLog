@@ -1,12 +1,3 @@
-[build]
-  command = "npm install and npm run build"
-  publish = "client/build"
-  functions = "netlify/functions"
-
-
-[functions]
-  directory = "netlify/functions"
-
 [[redirects]]
   from = "/api/search"
   to = "/.netlify/functions/search"
