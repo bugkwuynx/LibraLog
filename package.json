@@ -1,14 +1,14 @@
 {
-    "name": "LibraLog",
-    "version": "1.0.0",
-    "private": true,
-    "scripts": {
-      "build": "npm run build --prefix client",
-      "dev": "netlify dev",
-      "install:all": "npm install && npm install --prefix client && npm install --prefix server"
-    },
-    "devDependencies": {
-      "netlify-cli": "^15.0.0"
-    }
+  "name": "LibraLog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix client",
+    "dev": "netlify dev",
+    "start": "netlify dev",
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server"
+  },
+  "devDependencies": {
+    "netlify-cli": "^15.0.0"
   }
-  
+}
