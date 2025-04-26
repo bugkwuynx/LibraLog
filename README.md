@@ -115,3 +115,14 @@ This project is licensed under the ISC License - see the LICENSE file for detail
 
 - Thanks to all contributors who have helped shape this project
 - Special thanks to the open-source community for the amazing tools and libraries used in this project
+
+LibraLog/
+├── client/ # Frontend React application
+│ ├── src/
+│ ├── public/
+│ └── package.json
+├── netlify/
+│ └── functions/
+│ └── api/ # Your server functions (converted Express routes)
+├── netlify.toml # Netlify config file
+└── package.json # Root package.json for deployments

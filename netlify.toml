@@ -1,0 +1,27 @@
+[build]
+  base = "client"
+  publish = "client/build"
+  command = "npm install && npm run build"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/search"
+  to = "/.netlify/functions/search"
+  status = 200
+
+[[redirects]]
+  from = "/api/user-books/:username"
+  to = "/.netlify/functions/userBooks"
+  status = 200
+
+[[redirects]]
+  from = "/api/book/:username/:id"
+  to = "/.netlify/functions/bookActions"
+  status = 200
+
+[[redirects]]
+  from = "/api/book/:username"
+  to = "/.netlify/functions/bookActions"
+  status = 200
